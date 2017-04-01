@@ -1,9 +1,9 @@
 <div class="container">
   <div class="box">
     <label>{{data.name}}</label>
-    <button (click)="changeName($event)">Change Name</button>
+    <button (click)="changeName($event)"><i class="fa fa-refresh" aria-hidden="true" title="Change Name"></i></button>
   </div>
   <div class="children">
-    <acb-box *ngFor="let b of data?.children" [data]="b"></acb-box>
+    <acb-onpush-box *ngFor="let b of data?.children" [data]="b"></acb-onpush-box>
   </div>
 </div>

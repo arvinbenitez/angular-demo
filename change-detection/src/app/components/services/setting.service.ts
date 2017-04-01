@@ -11,6 +11,9 @@ export class SettingService {
   public static readonly afterViewCheckedColor = 'violet';
   public static readonly flashTime = 200;
 
+  // Flag whether to use onPush Component
+  public onPush = true;
+
   public eventSettings: any[] = [];
   constructor() {
     this.eventSettings.push({ name: 'ngOnChanges', color: SettingService.onChangesColor, enabled: true });
@@ -26,4 +29,5 @@ export class SettingService {
     const event = this.eventSettings.filter((x) => x.color === color);
     return event && event[0] ? event[0].enabled : false;
   }
+
 }

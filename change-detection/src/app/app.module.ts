@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { BoxComponent, LegendComponent, SettingComponent } from './components';
+import { OnPushBoxComponent, DefaultBoxComponent, LegendComponent, SettingComponent } from './components';
 
 import { NameService, SettingService } from './components/services';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoxComponent,
+    OnPushBoxComponent,
+    DefaultBoxComponent,
     LegendComponent,
     SettingComponent
   ],

@@ -15,16 +15,12 @@ import {
 import { Box, Flash } from '../contracts';
 import { NameService, SettingService } from '../services';
 
-@Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'acb-box',
-  templateUrl: './box.component.html',
-  styleUrls: ['./box.component.scss']
-})
-export class BoxComponent implements AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, DoCheck, OnInit, OnChanges {
+export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
+                                         AfterViewChecked, AfterViewInit, DoCheck,
+                                         OnInit, OnChanges {
 
   @Input() data: Box;
-  private flashInProgress: boolean = false;
+  private flashInProgress = false;
   private flashQueue: Flash[] = [];
 
   constructor(private element: ElementRef,

@@ -18,6 +18,7 @@
       "prefix": "acb",
       "mobile": false,
       "styles": [
+        "../node_modules/font-awesome/css/font-awesome.css",
         "styles.css"
       ],
       "scripts": [],
