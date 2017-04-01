@@ -1,17 +1,25 @@
 div.container {
   border: solid 1px lightgray;
   padding: 5px;
+  display: flex;
+  flex-direction: row;
 }
+
+div.options,
+div.settings {
+  flex-basis: 1;
+  flex-grow: 1;
+}
+
 div.option {
   border-left-style: solid;
   border-left-width: 20px;
   padding: 2px;
-
   label {
-      font-size: 11px;
-      font-family: verdana;
-      color: blue;
-      padding: 2px;
-      margin-bottom: 10px;
+    font-size: 11px;
+    font-family: verdana;
+    color: blue;
+    padding: 2px;
+    margin-bottom: 10px;
   }
 }

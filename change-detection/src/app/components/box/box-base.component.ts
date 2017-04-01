@@ -29,41 +29,41 @@ export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
 
   ngOnChanges() {
     if (this.settingService.isEnabled(SettingService.onChangesColor)) {
-      this.flash(SettingService.onChangesColor, SettingService.flashTime);
+      this.flash(SettingService.onChangesColor, this.settingService.flashTime);
     }
   }
 
   ngOnInit() {
     if (this.settingService.isEnabled(SettingService.onInitColor)) {
-      this.flash(SettingService.onInitColor, SettingService.flashTime);
+      this.flash(SettingService.onInitColor, this.settingService.flashTime);
     }
   }
   ngDoCheck() {
     if (this.settingService.isEnabled(SettingService.doCheckColor)) {
-      this.flash(SettingService.doCheckColor, SettingService.flashTime);
+      this.flash(SettingService.doCheckColor, this.settingService.flashTime);
     }
   }
   ngAfterContentInit() {
     if (this.settingService.isEnabled(SettingService.afterContentInitColor)) {
-      this.flash(SettingService.afterContentInitColor, SettingService.flashTime);
+      this.flash(SettingService.afterContentInitColor, this.settingService.flashTime);
     }
   }
 
   ngAfterContentChecked() {
     if (this.settingService.isEnabled(SettingService.afterContentCheckedColor)) {
-      this.flash(SettingService.afterContentCheckedColor, SettingService.flashTime);
+      this.flash(SettingService.afterContentCheckedColor, this.settingService.flashTime);
     }
   }
 
   ngAfterViewInit() {
     if (this.settingService.isEnabled(SettingService.afterViewInitColor)) {
-      this.flash(SettingService.afterViewInitColor, SettingService.flashTime);
+      this.flash(SettingService.afterViewInitColor, this.settingService.flashTime);
     }
   }
 
   ngAfterViewChecked() {
     if (this.settingService.isEnabled(SettingService.afterViewCheckedColor)) {
-      this.flash(SettingService.afterViewCheckedColor, SettingService.flashTime);
+      this.flash(SettingService.afterViewCheckedColor, this.settingService.flashTime);
     }
   }
 

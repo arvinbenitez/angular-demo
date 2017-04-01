@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Box } from './components/contracts';
-import { NameService } from './components/services';
+import { NameService, SettingService } from './components/services';
 
 @Component({
   selector: 'acb-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   box: Box;
 
-  constructor(private nameService: NameService) { }
+  constructor(private nameService: NameService, private settingService: SettingService) { }
 
   public ngOnInit() {
     this.box = this.createBox(5, 2);

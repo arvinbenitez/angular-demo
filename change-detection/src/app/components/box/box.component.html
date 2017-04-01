@@ -3,7 +3,10 @@
     <label>{{data.name}}</label>
     <button (click)="changeName($event)"><i class="fa fa-refresh" aria-hidden="true" title="Change Name"></i></button>
   </div>
-  <div class="children">
+  <div class="children" *ngIf="settingService.onPush">
     <acb-onpush-box *ngFor="let b of data?.children" [data]="b"></acb-onpush-box>
+  </div>
+  <div class="children" *ngIf="!settingService.onPush">
+    <acb-default-box *ngFor="let b of data?.children" [data]="b"></acb-default-box>
   </div>
 </div>

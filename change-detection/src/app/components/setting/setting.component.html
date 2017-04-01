@@ -1,6 +1,18 @@
 <div class="container">
-  <div class="option" *ngFor="let item of settingService.eventSettings" [style.border-left-color]="item.color">
-    <input type="checkbox" [(ngModel)]="item.enabled" [id]="item.name">
-    <label [attr.for]="item.name">{{item.name}}</label>
+  <div class="options">
+    <div class="option" *ngFor="let item of settingService.eventSettings" [style.border-left-color]="item.color">
+      <input type="checkbox" [(ngModel)]="item.enabled" [id]="item.name">
+      <label [attr.for]="item.name">{{item.name}}</label>
+    </div>
   </div>
-<div>
+  <div class="settings">
+    <div class="change-detection">
+      <input type="checkbox" [(ngModel)]="settingService.onPush" id="onPush">
+      <label for="onPush">OnPush Change Detection Strategy?</label>
+    </div>
+    <div class="flash-time">
+      <label for="flashTime">Flash Time (ms)</label>
+      <input type="numeric" [(ngModel)]="settingService.flashTime" id="flashTime">
+    </div>
+  </div>
+  <div>

@@ -9,7 +9,9 @@ export class SettingService {
   public static readonly afterContentCheckedColor = 'blue';
   public static readonly afterViewInitColor = 'indigo';
   public static readonly afterViewCheckedColor = 'violet';
-  public static readonly flashTime = 200;
+
+  // Setting to control the flashing
+  public flashTime = 200;
 
   // Flag whether to use onPush Component
   public onPush = true;
