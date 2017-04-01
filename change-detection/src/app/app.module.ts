@@ -4,17 +4,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { BoxComponent, LegendComponent, SettingComponent } from './components';
+
+import { NameService, SettingService } from './components/services';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoxComponent,
+    LegendComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    NameService, SettingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,29 @@
+div.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+div.box {
+  border: solid 1px gray;
+  padding: 2px;
+  color: red;
+  font-family: verdana;
+  font-size: 11px;
+  flex-grow: 1;
+  display: flex;
+  //width: 200px;
+  label {
+    flex-grow: 1;
+  }
+}
+
+div.children {
+  padding: 2px 0px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  acb-box {
+
+    flex-grow: 1;
+  }
+}
