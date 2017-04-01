@@ -7,12 +7,24 @@
   </div>
   <div class="settings">
     <div class="change-detection">
-      <input type="checkbox" [(ngModel)]="settingService.onPush" id="onPush">
       <label for="onPush">OnPush Change Detection Strategy?</label>
+      <input type="checkbox" [(ngModel)]="settingService.onPush" id="onPush">
     </div>
     <div class="flash-time">
       <label for="flashTime">Flash Time (ms)</label>
       <input type="numeric" [(ngModel)]="settingService.flashTime" id="flashTime">
+    </div>
+    <div class="tree-settings">
+      <label>Tree Settings</label>
+      <div class="tree-depth">
+        <label for="tree-depth">Tree Level</label>
+        <input type="numeric" [(ngModel)]="settingService.treeDepth" id="tree-depth">
+      </div>
+      <div class="box-children">
+        <label for="box-children">Children Per Node</label>
+        <input type="numeric" [(ngModel)]="settingService.numberOfChildren" id="box-children">
+      </div>
+      <button (click)="recreateNodes($event)">Recreate Nodes</button>
     </div>
   </div>
   <div>

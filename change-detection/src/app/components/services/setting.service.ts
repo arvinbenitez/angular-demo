@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Box } from '../contracts';
+import { NameService } from './name.service';
 
 @Injectable()
 export class SettingService {
@@ -10,14 +12,22 @@ export class SettingService {
   public static readonly afterViewInitColor = 'indigo';
   public static readonly afterViewCheckedColor = 'violet';
 
+  public box: Box;
+
   // Setting to control the flashing
   public flashTime = 200;
 
   // Flag whether to use onPush Component
   public onPush = true;
 
+  // The number of levels for the tree
+  public treeDepth = 5;
+
+  // The default number of children
+  public numberOfChildren = 2;
+
   public eventSettings: any[] = [];
-  constructor() {
+  constructor(private nameService: NameService) {
     this.eventSettings.push({ name: 'ngOnChanges', color: SettingService.onChangesColor, enabled: true });
     this.eventSettings.push({ name: 'ngOnInit', color: SettingService.onInitColor, enabled: true });
     this.eventSettings.push({ name: 'ngDoCheck', color: SettingService.doCheckColor, enabled: true });
@@ -31,5 +41,26 @@ export class SettingService {
     const event = this.eventSettings.filter((x) => x.color === color);
     return event && event[0] ? event[0].enabled : false;
   }
+
+  public generateBox(): void {
+    this.box = this.createBox(this.treeDepth, this.numberOfChildren);
+  }
+
+  private createBox(level: number, children: number): Box {
+    const box: Box = {
+      id: Math.floor(Math.random() * 100000).toString(),
+      name: this.nameService.generateName(),
+      children: []
+    };
+    let childBox: Box;
+    for (let i = 0; i < children; i++) {
+      if (level > 1) {
+        childBox = this.createBox(level - 1, children);
+        box.children.push(childBox);
+      }
+    }
+    return box;
+  }
+
 
 }

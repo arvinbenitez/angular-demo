@@ -2,5 +2,5 @@
   {{title}}
 </h1>
 <acb-setting></acb-setting>
-<acb-onpush-box *ngIf="settingService.onPush" [data]="box"></acb-onpush-box>
-<acb-default-box *ngIf="!settingService.onPush" [data]="box"></acb-default-box>
+<acb-onpush-box *ngIf="settingService.onPush" [data]="settingService.box"></acb-onpush-box>
+<acb-default-box *ngIf="!settingService.onPush" [data]="settingService.box"></acb-default-box>

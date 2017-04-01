@@ -13,4 +13,8 @@ export class SettingComponent implements OnInit {
   ngOnInit() {
   }
 
+  private recreateNodes(event: any): void {
+    this.settingService.generateBox();
+  }
+
 }
