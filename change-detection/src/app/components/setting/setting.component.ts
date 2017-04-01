@@ -4,7 +4,7 @@ import { SettingService } from '../services';
 @Component({
   selector: 'acb-setting',
   templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent implements OnInit {
 

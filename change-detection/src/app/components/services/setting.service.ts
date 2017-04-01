@@ -9,23 +9,21 @@ export class SettingService {
   public static readonly afterContentCheckedColor = 'blue';
   public static readonly afterViewInitColor = 'indigo';
   public static readonly afterViewCheckedColor = 'violet';
-
-  public enableOnChanges = false;
-  public enableOnInit = false;
-  public enableDoCheck = false;
-  public enableAfterContentInit = false;
-  public enabletAfterContentChecked = false;
-  public enableAfterViewInit = false;
-  public enableAfterViewChecked = false;
+  public static readonly flashTime = 200;
 
   public eventSettings: any[] = [];
   constructor() {
-    this.eventSettings.push({ name: 'ngOnChanges', color: SettingService.onChangesColor });
-    this.eventSettings.push({ name: 'ngOnInit', color: SettingService.onInitColor });
-    this.eventSettings.push({ name: 'ngDoCheck', color: SettingService.doCheckColor });
-    this.eventSettings.push({ name: 'ngAfterContentInit', color: SettingService.afterContentInitColor });
-    this.eventSettings.push({ name: 'ngAfterContentChecked', color: SettingService.afterContentCheckedColor });
-    this.eventSettings.push({ name: 'ngAfterViewInit', color: SettingService.afterViewInitColor });
-    this.eventSettings.push({ name: 'ngAfterViewChecked', color: SettingService.afterViewCheckedColor });
+    this.eventSettings.push({ name: 'ngOnChanges', color: SettingService.onChangesColor, enabled: true });
+    this.eventSettings.push({ name: 'ngOnInit', color: SettingService.onInitColor, enabled: true });
+    this.eventSettings.push({ name: 'ngDoCheck', color: SettingService.doCheckColor, enabled: true });
+    this.eventSettings.push({ name: 'ngAfterContentInit', color: SettingService.afterContentInitColor, enabled: true });
+    this.eventSettings.push({ name: 'ngAfterContentChecked', color: SettingService.afterContentCheckedColor, enabled: true });
+    this.eventSettings.push({ name: 'ngAfterViewInit', color: SettingService.afterViewInitColor, enabled: true });
+    this.eventSettings.push({ name: 'ngAfterViewChecked', color: SettingService.afterViewCheckedColor, enabled: true });
+  }
+
+  public isEnabled(color: string): boolean {
+    const event = this.eventSettings.filter((x) => x.color === color);
+    return event && event[0] ? event[0].enabled : false;
   }
 }
