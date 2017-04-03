@@ -17,5 +17,6 @@ export class OnPushBoxComponent extends BoxComponentBase {
     nameService: NameService,
     settingService: SettingService) {
     super(element, nameService, settingService);
+    this.isPush = true;
   }
 }

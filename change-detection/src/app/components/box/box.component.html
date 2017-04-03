@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="box">
+  <div class="box" [ngClass]="{'push': isPush, 'default': !isPush}">
     <label>{{data.name}}</label>
     <button (click)="changeName($event)"><i class="fa fa-refresh" aria-hidden="true" title="Change Name"></i></button>
   </div>
-  <div class="children" *ngIf="settingService.onPush">
-    <acb-onpush-box *ngFor="let b of data?.children" [data]="b"></acb-onpush-box>
-  </div>
-  <div class="children" *ngIf="!settingService.onPush">
-    <acb-default-box *ngFor="let b of data?.children" [data]="b"></acb-default-box>
+  <div class="children">
+
+    <template ngFor let-child [ngForOf]="data?.children">
+      <acb-onpush-box *ngIf="child.isPush" [data]="child"></acb-onpush-box>
+      <acb-default-box *ngIf="!child.isPush" [data]="child"></acb-default-box>
+    </template>
   </div>
 </div>

@@ -19,6 +19,7 @@ export class SettingService {
 
   // Flag whether to use onPush Component
   public onPush = true;
+  public randomizeOnPush = false; // set this to true if the change detection needs to be random 
 
   // The number of levels for the tree
   public treeDepth = 5;
@@ -44,11 +45,14 @@ export class SettingService {
 
   public generateBox(): void {
     this.box = this.createBox(this.treeDepth, this.numberOfChildren);
+    console.log(this.box);
   }
 
   private createBox(level: number, children: number): Box {
+    const push = this.randomizeOnPush ? Math.floor(Math.random() * 2) === 0 : this.onPush;
     const box: Box = {
       id: Math.floor(Math.random() * 100000).toString(),
+      isPush: push,
       name: this.nameService.generateName(),
       children: []
     };

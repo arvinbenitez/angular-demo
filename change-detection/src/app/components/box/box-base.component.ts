@@ -23,6 +23,8 @@ export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
   private flashInProgress = false;
   private flashQueue: Flash[] = [];
 
+  protected isPush: boolean;
+
   constructor(private element: ElementRef,
     private nameService: NameService,
     private settingService: SettingService) { }

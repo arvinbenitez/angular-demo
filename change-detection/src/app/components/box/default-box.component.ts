@@ -15,5 +15,6 @@ export class DefaultBoxComponent extends BoxComponentBase {
     nameService: NameService,
     settingService: SettingService) {
     super(element, nameService, settingService);
+    this.isPush = false;
   }
 }

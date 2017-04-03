@@ -6,6 +6,7 @@ div.container {
 
 div.box {
   border: solid 1px gray;
+  border-radius: 0 5px 5px 0;
   padding: 2px;
   margin: 2px;
   color: blue;
@@ -16,6 +17,12 @@ div.box {
   display: flex;
   align-items: center;
   justify-content: center;
+  &.push {
+    border-right: solid 5px green;
+  }
+  &.default {
+    border-right: solid 5px red;
+  }
   label {
     padding: 2px 5px;
   }

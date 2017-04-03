@@ -10,6 +10,10 @@
       <label for="onPush">OnPush Change Detection Strategy?</label>
       <input type="checkbox" [(ngModel)]="settingService.onPush" id="onPush">
     </div>
+    <div class="change-detection">
+      <label for="onPushRandom" title="Recreate the boxes after clicking this">Randomize OnPush Strategy?</label>
+      <input type="checkbox" [(ngModel)]="settingService.randomizeOnPush" id="onPushRandom">
+    </div>
     <div class="flash-time">
       <label for="flashTime">Flash Time (ms)</label>
       <input type="numeric" [(ngModel)]="settingService.flashTime" id="flashTime">
