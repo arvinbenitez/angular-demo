@@ -1,6 +1,7 @@
 import {
   Component,
-  ElementRef
+  ElementRef,
+  NgZone
 } from '@angular/core';
 import { NameService, SettingService } from '../services';
 import { BoxComponentBase } from './box-base.component';
@@ -13,8 +14,9 @@ import { BoxComponentBase } from './box-base.component';
 export class DefaultBoxComponent extends BoxComponentBase {
   constructor(element: ElementRef,
     nameService: NameService,
-    settingService: SettingService) {
-    super(element, nameService, settingService);
+    settingService: SettingService,
+    zone: NgZone) {
+    super(element, nameService, settingService, zone);
     this.isPush = false;
   }
 }

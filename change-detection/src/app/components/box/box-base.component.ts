@@ -8,6 +8,7 @@ import {
   Component,
   DoCheck,
   ElementRef,
+  NgZone,
   OnInit,
   OnChanges,
   Input
@@ -16,8 +17,8 @@ import { Box, Flash } from '../contracts';
 import { NameService, SettingService } from '../services';
 
 export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
-                                         AfterViewChecked, AfterViewInit, DoCheck,
-                                         OnInit, OnChanges {
+  AfterViewChecked, AfterViewInit, DoCheck,
+  OnInit, OnChanges {
 
   @Input() data: Box;
   private flashInProgress = false;
@@ -27,7 +28,8 @@ export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
 
   constructor(private element: ElementRef,
     private nameService: NameService,
-    private settingService: SettingService) { }
+    private settingService: SettingService,
+    private zone: NgZone) { }
 
   ngOnChanges() {
     if (this.settingService.isEnabled(SettingService.onChangesColor)) {
@@ -94,14 +96,16 @@ export class BoxComponentBase implements AfterContentChecked, AfterContentInit,
   private applyFlash(flashMessage: Flash): void {
     this.element.nativeElement.getElementsByClassName('box')[0].style.background = flashMessage.color;
     this.flashInProgress = true;
-    setTimeout(() => {
-      if (this.flashQueue && this.flashQueue.length > 0) {
-        const poppedMessage = this.flashQueue.shift();
-        this.applyFlash(poppedMessage);
-      } else {
-        this.element.nativeElement.getElementsByClassName('box')[0].style.background = 'lightgray';
-        this.flashInProgress = false;
-      }
-    }, flashMessage.timeInMilliseconds);
+    this.zone.runOutsideAngular(() => {
+      setTimeout(() => {
+        if (this.flashQueue && this.flashQueue.length > 0) {
+          const poppedMessage = this.flashQueue.shift();
+          this.applyFlash(poppedMessage);
+        } else {
+          this.element.nativeElement.getElementsByClassName('box')[0].style.background = 'lightgray';
+          this.flashInProgress = false;
+        }
+      }, flashMessage.timeInMilliseconds);
+    });
   }
 }
