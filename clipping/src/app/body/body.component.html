@@ -1,0 +1,7 @@
+<div class="body-container">
+  <div class="grid-row" *ngFor="let row of data.rows">
+    <div class="grid-cell" *ngFor="let col of data.columns">
+      {{row[col.columnName]}}
+    </div>
+  </div>
+</div>
