@@ -12,7 +12,7 @@ export class GridComponent implements OnInit {
   private data: GridData;
 
   constructor(private gridService: GridService) {
-    this.data = this.gridService.gridData(10, 20000);
+    this.data = this.gridService.gridData(10, 1000000);
   }
 
   ngOnInit() {

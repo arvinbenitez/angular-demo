@@ -1,7 +1,13 @@
 <div class="body-container">
-  <div class="grid-row" *ngFor="let row of data.rows">
-    <div class="grid-cell" *ngFor="let col of data.columns">
-      {{row[col.columnName]}}
+  <div class="data">
+    <div class="grid-row" *ngFor="let row of visibleData">
+      <div class="grid-cell" *ngFor="let col of data.columns">
+        {{row[col.columnName]}}
+      </div>
+    </div>
+  </div>
+  <div class="scrollbar" (scroll)="onscroll($event)">
+    <div class="fake-container" [style.height.px]="fakeHeight" style="background:red">
     </div>
   </div>
 </div>

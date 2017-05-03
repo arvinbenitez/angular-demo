@@ -6,9 +6,22 @@ div.grid-cell {
     display: inline-block;
     width: 100px;
     border-right: solid 1px lightgray;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 30px;
 }
 
 div.body-container {
     height: 500px;
+    overflow-y: hidden;
+    display: flex;
+}
+
+div.scrollbar {
     overflow-y: auto;
+    flex: 0 0 18px;
+}
+
+div.data {
+    flex: 1;
 }
